@@ -4,11 +4,29 @@ import ToDoItem from "./ToDoItem";
 
 function App() {
   const [listOfItemsInToDo, setListOfItemsInToDo] = useState([]);
+  //! for any type of warning;
+  const [warning, setWarning] = useState({
+    show: false,
+    message: "",
+    type: "",
+  });
+
+  const editWarningObject = (show = false, type = "", message = "") => {
+    setWarning({ show: show, type: type, message: message });
+  };
 
   const addItem = (text) => {
-    setListOfItemsInToDo((prevItems) => {
-      return [...prevItems, text];
-    });
+    if (!text) {
+      editWarningObject(
+        true,
+        "danger",
+        "No value entered. Please enter a value..."
+      );
+    } else {
+      setListOfItemsInToDo((prevItems) => {
+        return [...prevItems, text];
+      });
+    }
   };
 
   const removeItem = (id) => {
@@ -24,7 +42,7 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <InputArea onAdd={addItem}></InputArea>
+      <InputArea onAdd={addItem} warning={warning}></InputArea>
       <div>
         <ul>
           {listOfItemsInToDo.map((toDoItem, index) => {
