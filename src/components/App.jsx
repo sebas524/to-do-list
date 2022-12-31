@@ -42,7 +42,11 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <InputArea onAdd={addItem} warning={warning}></InputArea>
+      <InputArea
+        onAdd={addItem}
+        warning={warning}
+        editWarningObject={editWarningObject}
+      ></InputArea>
       <div>
         <ul>
           {listOfItemsInToDo.map((toDoItem, index) => {

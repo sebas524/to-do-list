@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Warning from "./Warning";
 
-export default function InputArea(props) {
+export default function InputArea({ onAdd, warning, editWarningObject }) {
   const [typeTheText, setTypeTheText] = useState("");
 
   const handleChange = (e) => {
@@ -9,11 +9,13 @@ export default function InputArea(props) {
   };
   return (
     <div className="form">
-      {props.warning.show && <Warning {...props.warning}></Warning>}
+      {warning.show && (
+        <Warning {...warning} removeWarning={editWarningObject}></Warning>
+      )}
       <input type="text" value={typeTheText} onChange={handleChange} />
       <button
         onClick={() => {
-          props.onAdd(typeTheText);
+          onAdd(typeTheText);
           setTypeTheText("");
         }}
       >
