@@ -35,6 +35,15 @@ function App() {
     });
   };
 
+  const clearAll = () => {
+    if (listOfItemsInToDo.length === 0) {
+      editWarningObject(true, "danger", "List has no items...");
+    } else {
+      editWarningObject(true, "danger", "list has been emptied...");
+      setListOfItemsInToDo([]);
+    }
+  };
+
   return (
     <div className="container">
       <div className="heading">
@@ -46,6 +55,7 @@ function App() {
         editWarningObject={editWarningObject}
         listOfItemsInToDo={listOfItemsInToDo}
       ></InputArea>
+
       <div>
         <ul>
           {listOfItemsInToDo.map((toDoItem, index) => {
@@ -60,6 +70,9 @@ function App() {
           })}
         </ul>
       </div>
+      <button onClick={clearAll}>
+        <span> Delete all</span>
+      </button>
     </div>
   );
 }

@@ -40,6 +40,10 @@ body {
   font-size: 1.5rem;
 }
 
+.instructions {
+  font-size: 15px;
+}
+
 .warning {
   font-size: 15px;
 }
