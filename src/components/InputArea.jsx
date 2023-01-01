@@ -15,8 +15,8 @@ export default function InputArea({
   return (
     <div className="form">
       <div className="instructions">
-        <p>-Keep track of your to-dos by writing them here down!</p>
-        <p>-Click on specific item to remove it from list.</p>
+        <p>-Keep track of your to-dos by writing them here down! ✏️📙🤓</p>
+        <p>-Click on specific item to remove it from list! ❌</p>
       </div>
 
       {warning.show && (
