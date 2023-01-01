@@ -44,6 +44,7 @@ function App() {
         onAdd={addItem}
         warning={warning}
         editWarningObject={editWarningObject}
+        listOfItemsInToDo={listOfItemsInToDo}
       ></InputArea>
       <div>
         <ul>
