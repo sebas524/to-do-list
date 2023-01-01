@@ -8,7 +8,7 @@ function Warning({ type, message, removeWarning }) {
     return () => clearTimeout(timeOut);
   }, []);
 
-  return <p>{message}</p>;
+  return <p className={`warning warning-${type}`}>{message}</p>;
 }
 
 export default Warning;

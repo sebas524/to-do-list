@@ -1,5 +1,5 @@
 body {
-  background-color: #ffb3a7;
+  background-color: #ffeca7;
   min-height: 70vh;
   padding: 1rem;
   box-sizing: border-box;
@@ -36,8 +36,18 @@ body {
   transform: rotate(2deg);
   padding: 0.2rem 1.2rem;
   border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
-  background-color: #fd7a6e;
+  background-color: #fdea6e;
   font-size: 1.5rem;
+}
+
+.warning {
+  font-size: 15px;
+}
+.warning-success {
+  background-color: #8cff86;
+}
+.warning-danger {
+  background-color: #ff8886;
 }
 
 .form input {
@@ -62,7 +72,7 @@ button {
   text-decoration: none;
   padding-bottom: 3px;
   border-radius: 5px;
-  background-color: #ffb4a7;
+  background-color: #fff9a7;
 }
 button span {
   background: #f1f5f8;

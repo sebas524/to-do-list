@@ -17,13 +17,11 @@ function App() {
 
   const addItem = (text) => {
     if (!text) {
-      editWarningObject(
-        true,
-        "danger",
-        "No value entered. Please enter a value..."
-      );
+      editWarningObject(true, "danger", "No value has been entered...");
     } else {
       setListOfItemsInToDo((prevItems) => {
+        editWarningObject(true, "success", "Value has been succesfully added!");
+
         return [...prevItems, text];
       });
     }
