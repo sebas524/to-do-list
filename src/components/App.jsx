@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InputArea from "./InputArea";
 import ToDoItem from "./ToDoItem";
 
+const getLocalStorage = () => {
+  let storageList = localStorage.getItem("list");
+  if (storageList) {
+    return JSON.parse(localStorage.getItem("list"));
+  } else {
+    return [];
+  }
+};
 function App() {
-  const [listOfItemsInToDo, setListOfItemsInToDo] = useState([]);
+  const [listOfItemsInToDo, setListOfItemsInToDo] = useState(getLocalStorage());
   //! for any type of warning;
   const [warning, setWarning] = useState({
     show: false,
@@ -43,6 +51,10 @@ function App() {
       setListOfItemsInToDo([]);
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(listOfItemsInToDo));
+  }, [listOfItemsInToDo]);
 
   return (
     <div className="container">
