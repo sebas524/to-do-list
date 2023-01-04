@@ -12,6 +12,8 @@ const getLocalStorage = () => {
 };
 function App() {
   const [listOfItemsInToDo, setListOfItemsInToDo] = useState(getLocalStorage());
+  const [theme, setTheme] = useState("light-theme");
+
   //! for any type of warning;
   const [warning, setWarning] = useState({
     show: false,
@@ -21,6 +23,17 @@ function App() {
 
   const editWarningObject = (show = false, type = "", message = "") => {
     setWarning({ show: show, type: type, message: message });
+  };
+
+  useEffect(() => {
+    document.documentElement.className = theme;
+  }, [theme]);
+  const toggleTheme = () => {
+    if (theme === "light-theme") {
+      setTheme("dark-theme");
+    } else {
+      setTheme("light-theme");
+    }
   };
 
   const addItem = (text) => {
@@ -84,6 +97,9 @@ function App() {
       </div>
       <button onClick={clearAll}>
         <span> Delete all</span>
+      </button>
+      <button onClick={toggleTheme}>
+        <span> Toggle me</span>
       </button>
     </div>
   );
